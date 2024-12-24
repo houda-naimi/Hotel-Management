@@ -1,0 +1,42 @@
+<div class="container mt-4">
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients" (click)="selectClient(client)">
+        <td>{{ client.id || 'ID non défini' }}</td>
+        <td>{{ client.nom }}</td>
+        <td>{{ client.prenom }}</td>
+        <td>{{ client.tel }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editClient(client.id)" style="margin-right: 10px;">
+            <i class="fas fa-edit"></i> Éditer
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteClient(client.id)">
+            <i class="fas fa-trash"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <app-client-detail [client]="selectedClient"></app-client-detail>
+
+  
+  <div class="text-end mt-4">
+    <button class="btn btn-success" routerLink="/add-client" title="Ajouter un client">
+      <i class="fas fa-plus"></i> Ajouter un Client
+    </button>
+  </div>
+</div>

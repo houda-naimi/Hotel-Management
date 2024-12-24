@@ -1,0 +1,38 @@
+.client-detail .card {
+    border-radius: 12px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  
+  .client-detail .card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  }
+  
+  .client-detail .card-header {
+    background-color: #50575e; 
+    color: white; 
+    font-size: 1.2rem; 
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .client-detail .card-body {
+    background-color: #f9f9f9; 
+    font-size: 1rem;
+    color: #333; 
+    padding: 20px; 
+  }
+  
+  .client-detail p {
+    margin: 12px 0;
+    font-weight: 500; 
+  }
+  
+  .client-detail p strong {
+    color: #007bff; 
+  }
+  
+  .client-detail .card-body p:last-child {
+    margin-bottom: 0; 
+  }
+  

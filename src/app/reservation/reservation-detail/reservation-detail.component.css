@@ -1,0 +1,36 @@
+.card {
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+  
+  .card-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .card-header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .card-footer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  ul.list-unstyled li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  ul.list-unstyled li i {
+    margin-right: 8px;
+  }
+  
+  .alert i {
+    margin-right: 5px;
+  }
+  

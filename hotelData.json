@@ -1,0 +1,148 @@
+{
+  "clients": [
+    {
+      "id": "3",
+      "nom": "test",
+      "prenom": "test2",
+      "tel": "12345678",
+      "email": "houda@naimi.com"
+    },
+    {
+      "id": "4",
+      "nom": "tets3",
+      "prenom": "amira",
+      "tel": "1234567877",
+      "email": "houda@naimi.com"
+    },
+    {
+      "id": "client-1734465566895",
+      "nom": "test",
+      "prenom": "ha",
+      "tel": "77777799",
+      "email": "test@gmail.com"
+    },
+    {
+      "id": "client-1734522398767",
+      "nom": "cl1",
+      "prenom": "cl",
+      "tel": "74188596",
+      "email": "test@gmail.com"
+    }
+  ],
+  "chambres": [
+    {
+      "id": "chambre-1734454526733",
+      "typeChambre": "double",
+      "prixSejour": 0,
+      "etat": "disponible"
+    },
+    {
+      "id": "chambre-1734454533329",
+      "typeChambre": "suite",
+      "prixSejour": 0,
+      "etat": "disponible"
+    },
+    {
+      "id": "chambre-1734454597717",
+      "typeChambre": "simple",
+      "prixSejour": 0,
+      "etat": "disponible"
+    },
+    {
+      "id": "chambre-1734454607650",
+      "typeChambre": "suite",
+      "prixSejour": 0,
+      "etat": "non disponible"
+    },
+    {
+      "id": "chambre-1734522366846",
+      "typeChambre": "familiale",
+      "prixSejour": 300,
+      "etat": "non disponible"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "reservation-1734465662158",
+      "dateRes": "2024-12-17",
+      "dateDebut": "2024-12-22",
+      "dateFin": "2024-12-25",
+      "nbAdulte": 1,
+      "nbKids": 0,
+      "clientId": "client-17344657785",
+      "chambreId": "chambre-1734454607650"
+    },
+    {
+      "id": "reservation-17344",
+      "dateRes": "2024-12-17",
+      "dateDebut": "2024-12-23",
+      "dateFin": "2024-12-25",
+      "nbAdulte": 1,
+      "nbKids": 2,
+      "clientId": "client-1734465566895",
+      "chambreId": "chambre-1734454607650"
+    },
+    {
+      "id": "reservation-1734521356529",
+      "dateRes": "2024-12-18",
+      "dateDebut": "2024-12-19",
+      "dateFin": "2024-12-21",
+      "nbAdulte": 7,
+      "nbKids": 6,
+      "clientId": "4",
+      "chambreId": "chambre-1734454526733"
+    }
+  ],
+  "promotions": [
+    {
+      "id": "1",
+      "typePromo": "codepromo",
+      "remise": 10
+    }
+  ],
+  "factures": [
+    {
+      "id": "1",
+      "prix": 90,
+      "dateFacture": "2024-06-15"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "email": "testuser@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "df3f",
+      "username": "tets",
+      "email": "test@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "3deb",
+      "username": "tets",
+      "email": "test@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "6953",
+      "username": "tets",
+      "email": "test@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "a9ad",
+      "username": "a",
+      "email": "a@gmail.com",
+      "password": "aaaaaa"
+    },
+    {
+      "id": "0592",
+      "username": "user",
+      "email": "user@gmail.com",
+      "password": "123456"
+    }
+  ]
+}

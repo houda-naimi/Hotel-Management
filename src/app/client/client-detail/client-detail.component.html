@@ -1,0 +1,13 @@
+<div *ngIf="client" class="card mt-4 shadow-lg hover-effect">
+    <div class="card-header bg-primary text-white">
+      <h4>Détails du client</h4>
+    </div>
+    <div class="card-body">
+      <p><strong>ID :</strong> {{ client.id || 'Non défini' }}</p>
+      <p><strong>Nom :</strong> {{ client.nom }}</p>
+      <p><strong>Prénom :</strong> {{ client.prenom }}</p>
+      <p><strong>Téléphone :</strong> {{ client.tel }}</p>
+      <p><strong>Email :</strong> {{ client.email }}</p>
+    </div>
+  </div>
+  

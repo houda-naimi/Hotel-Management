@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+
+.toast-success {
+    background-color: #28a745 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .toast-error {
+    background-color: #dc3545 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .toast-warning {
+    background-color: #ffc107 !important; 
+    color: #000 !important;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .toast-info {
+    background-color: #17a2b8 !important; 
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+
+  .toast {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+  }
+
+.toast-container {
+  top: 20px !important; 
+  bottom: auto !important; 
+  z-index: 9999; 
+}
+
+.toast-top-center {
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important; 
+}
+

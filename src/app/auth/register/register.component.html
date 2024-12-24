@@ -1,0 +1,69 @@
+<div class="container register-container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-12">
+       
+        <div class="card register-card shadow-lg border-light rounded">
+          <div class="card-header bg-primary text-white text-center">
+            <img src="login2.png" alt="Register" class="register-image img-fluid mb-3">
+            <h3>Inscription</h3>
+          </div>
+          <div class="card-body">
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+             
+              <div class="form-group mb-3">
+                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" ngModel required class="form-control" #username="ngModel" />
+                <div *ngIf="username.invalid && username.touched" class="text-danger">
+                  Le nom d'utilisateur est requis.
+                </div>
+              </div>
+  
+             
+              <div class="form-group mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" ngModel required email class="form-control" #email="ngModel" />
+                <div *ngIf="email.invalid && email.touched" class="text-danger">
+                  Un email valide est requis.
+                </div>
+              </div>
+  
+              
+              <div class="form-group mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" id="password" name="password" ngModel required minlength="6" class="form-control" #password="ngModel" />
+                <div *ngIf="password.invalid && password.touched" class="text-danger">
+                  Le mot de passe doit contenir au moins 6 caractères.
+                </div>
+              </div>
+  
+              
+              <div class="form-group mb-3">
+                <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" ngModel required class="form-control" #confirmPassword="ngModel" />
+                <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger">
+                  Le mot de passe de confirmation est requis.
+                </div>
+                <div *ngIf="confirmPassword.touched && confirmPassword.value !== password.value" class="text-danger">
+                  Les mots de passe ne correspondent pas.
+                </div>
+              </div>
+  
+              
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+                  S'inscrire
+                </button>
+              </div>
+            </form>
+          </div>
+  
+        
+          <div class="card-footer text-center">
+            <p class="text-muted mb-0">Vous avez déjà un compte ?</p>
+            <a routerLink="/login" class="btn btn-link text-primary">Se connecter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,46 @@
+
+.text-primary {
+    color: #007bff; 
+  }
+  
+ 
+  .form-label.text-secondary {
+    color: #6c757d; 
+  }
+  
+  
+  .form-control.border-primary {
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+  }
+  
+
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .alert i {
+    margin-right: 10px;
+  }
+  

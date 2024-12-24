@@ -1,0 +1,50 @@
+<div class="container mt-4">
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Type de Chambre</th>
+        <th scope="col">Prix Séjour</th>
+        <th scope="col">État</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chambre of chambres">
+        <td>{{ chambre.id || 'ID non défini' }}</td>
+        <td>{{ chambre.typeChambre }}</td>
+        <td>{{ chambre.prixSejour | currency:'TND':'symbol':'1.0-0' }}</td>
+        <td>
+          
+          <ng-container *ngIf="chambre.etat === 'disponible'">
+            <i class="fas fa-check-circle text-success" title="Disponible" style="margin-right: 8px;"></i>
+            Disponible
+          </ng-container>
+          <ng-container *ngIf="chambre.etat === 'non disponible'">
+            <i class="fas fa-times-circle text-danger" title="Non disponible" style="margin-right: 8px;"></i>
+            Non disponible
+          </ng-container>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editChambre(chambre.id)" style="margin-right: 10px;">
+            <i class="fas fa-edit"></i> Éditer
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteChambre(chambre.id)" style="margin-right: 10px;">
+            <i class="fas fa-trash"></i> Supprimer
+          </button>
+          <button class="btn btn-info btn-sm" [routerLink]="['/chambre-detail', chambre.id]" title="Voir Détail">
+            <i class="fas fa-eye"></i> Voir Détail
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="text-end mt-4">
+    <button class="btn btn-success" routerLink="/add-chambre" title="Ajouter une chambre">
+      <i class="fas fa-plus"></i> Ajouter une Chambre
+    </button>
+  </div>
+</div>

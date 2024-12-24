@@ -1,0 +1,68 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Ajouter une Nouvelle Chambre</h2>
+  
+ 
+    <div *ngIf="message" class="alert" [class.alert-success]="success" [class.alert-danger]="!success">
+      {{ message }}
+    </div>
+  
+    
+    <form #chambreForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="typeChambre">Type de Chambre</label>
+          <select id="typeChambre" name="typeChambre" class="form-control" [(ngModel)]="chambre.typeChambre" #typeChambre="ngModel" required>
+            <option value="simple">Chambre Simple</option>
+            <option value="double">Chambre Double</option>
+            <option value="suite">Suite</option>
+            <option value="familiale">Chambre Familiale</option>
+            <option value="luxury">Chambre de Luxe</option>
+          </select>
+          <div *ngIf="typeChambre.invalid && typeChambre.touched" class="text-danger">
+            <small *ngIf="typeChambre.errors?.['required']">Le type de chambre est requis.</small>
+          </div>
+        </div>
+      <div class="form-group">
+        <label for="prixSejour">Prix Séjour</label>
+        <input
+          type="number"
+          id="prixSejour"
+          name="prixSejour"
+          class="form-control"
+          required
+          [(ngModel)]="chambre.prixSejour"
+          #prixSejour="ngModel"
+        />
+        <div *ngIf="prixSejour.invalid && prixSejour.touched" class="text-danger">
+          <small *ngIf="prixSejour.errors?.['required']">Le prix séjour est requis.</small>
+        </div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="etat">État</label>
+        <select id="etat" name="etat" class="form-control" [(ngModel)]="chambre.etat" #etat="ngModel" required>
+          <option value="disponible">Disponible</option>
+          <option value="non disponible">Non disponible</option>
+        </select>
+        
+        <div class="mt-2">
+          <ng-container *ngIf="chambre.etat === 'disponible'">
+            <span class="text-success">
+              <i class="fas fa-check-circle"></i> Disponible
+            </span>
+          </ng-container>
+          <ng-container *ngIf="chambre.etat === 'non disponible'">
+            <span class="text-danger">
+              <i class="fas fa-times-circle"></i> Non disponible
+            </span>
+          </ng-container>
+        </div>
+      </div>
+  
+    
+      <button type="submit" class="btn btn-success" [disabled]="chambreForm.invalid">
+        <i class="fas fa-save"></i> Ajouter
+      </button>
+    </form>
+  </div>
+  

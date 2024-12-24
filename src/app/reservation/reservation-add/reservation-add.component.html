@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4 text-primary">Ajouter une Réservation</h2>
+
+  
+  <div *ngIf="message" class="alert" [class.alert-success]="success" [class.alert-danger]="!success" role="alert">
+    <i class="fas" [ngClass]="success ? 'fa-check-circle' : 'fa-exclamation-circle'"></i> {{ message }}
+  </div>
+
+  
+  <form #reservationForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="dateRes" class="form-label text-secondary">Date de Réservation</label>
+          <input type="date" id="dateRes" name="dateRes" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.dateRes" #dateRes="ngModel" [min]="today" required />
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="dateDebut" class="form-label text-secondary">Date de Début</label>
+          <input type="date" id="dateDebut" name="dateDebut" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.dateDebut" #dateDebut="ngModel" [min]="today" required />
+        </div>
+      </div>
+
+     
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="dateFin" class="form-label text-secondary">Date de Fin</label>
+          <input type="date" id="dateFin" name="dateFin" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.dateFin" #dateFin="ngModel" [min]="reservation.dateDebut || today" required />
+        </div>
+      </div>
+
+     
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="nbAdulte" class="form-label text-secondary">Nombre d'Adultes</label>
+          <input type="number" id="nbAdulte" name="nbAdulte" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.nbAdulte" #nbAdulte="ngModel" required min="1" />
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="nbKids" class="form-label text-secondary">Nombre d'Enfants</label>
+          <input type="number" id="nbKids" name="nbKids" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.nbKids" #nbKids="ngModel" min="0" />
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="clientId" class="form-label text-secondary">Sélectionner un Client</label>
+          <select id="clientId" name="clientId" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.clientId" #clientId="ngModel" required>
+            <option *ngFor="let client of clients" [value]="client.id">
+              {{ client.nom }} {{ client.prenom }} (ID: {{ client.id }})
+            </option>
+          </select>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 mb-3">
+        <div class="form-group">
+          <label for="chambreId" class="form-label text-secondary">Sélectionner une Chambre Disponible</label>
+          <select id="chambreId" name="chambreId" class="form-control shadow-sm border-primary"
+            [(ngModel)]="reservation.chambreId" #chambreId="ngModel" required>
+            <option *ngFor="let chambre of chambresDisponibles" [value]="chambre.id">
+              Chambre {{ chambre.typeChambre }} - Prix: {{ chambre.prixSejour | currency }} (ID: {{ chambre.id }})
+            </option>
+          </select>
+        </div>
+      </div>
+
+    
+      <div class="col-12">
+        <button type="submit" class="btn btn-success btn-lg w-100 shadow-sm" [disabled]="reservationForm.invalid || !validateDates()">
+          <i class="fas fa-save"></i> Ajouter Réservation
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

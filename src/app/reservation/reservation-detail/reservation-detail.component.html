@@ -1,0 +1,69 @@
+<div class="container mt-4">
+    <div *ngIf="reservation" class="card shadow-lg border-0">
+      
+      <div class="card-header bg-primary text-white d-flex align-items-center justify-content-center">
+        <img src="res.png" alt="Détails">
+        <h5 class="mb-0">Détails de la Réservation</h5>
+      </div>
+      
+      
+      <div class="card-body">
+        <ul class="list-unstyled mb-0">
+          <li>
+            <i class="fas fa-id-card text-primary"></i>
+            <strong>ID de Réservation :</strong>
+            <span class="ms-2">{{ reservation.id }}</span>
+          </li>
+          <li>
+            <i class="fas fa-id-card text-primary"></i>
+            <strong>ID de Client :</strong>
+            <span class="ms-2">{{ reservation.clientId }}</span>
+          </li>
+          <li>
+            <i class="fas fa-calendar-day text-success"></i>
+            <strong>Date de Réservation :</strong>
+            <span class="ms-2">{{ reservation.dateRes | date:'shortDate' }}</span>
+          </li>
+          <li>
+            <i class="fas fa-calendar-alt text-info"></i>
+            <strong>Date de Début :</strong>
+            <span class="ms-2">{{ reservation.dateDebut | date:'shortDate' }}</span>
+          </li>
+          <li>
+            <i class="fas fa-calendar-check text-warning"></i>
+            <strong>Date de Fin :</strong>
+            <span class="ms-2">{{ reservation.dateFin | date:'shortDate' }}</span>
+          </li>
+          <li>
+            <i class="fas fa-users text-secondary"></i>
+            <strong>Nombre d'Adultes :</strong>
+            <span class="ms-2">{{ reservation.nbAdulte }}</span>
+          </li>
+          <li>
+            <i class="fas fa-child text-danger"></i>
+            <strong>Nombre d'Enfants :</strong>
+            <span class="ms-2">{{ reservation.nbKids }}</span>
+          </li>
+          <li>
+            <i class="fas fa-bed text-muted"></i>
+            <strong>ID Chambre :</strong>
+            <span class="ms-2">{{ reservation.chambreId }}</span>
+          </li>
+        </ul>
+      </div>
+  
+      
+      <div class="card-footer bg-light text-center">
+        <a routerLink="/reservations" class="btn btn-outline-primary">
+          <i class="fas fa-arrow-left"></i> Retour à la liste
+        </a>
+      </div>
+    </div>
+  
+    
+    <div *ngIf="!reservation" class="alert alert-danger text-center mt-4">
+      <i class="fas fa-exclamation-circle"></i>
+      <strong>Réservation non trouvée !</strong>
+    </div>
+  </div>
+  

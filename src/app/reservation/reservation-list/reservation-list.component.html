@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <div class="mb-3 input-group">
+    <span class="input-group-text">
+      <i class="fas fa-search"></i> 
+    </span>
+    <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchTerm">
+  </div>
+
+ 
+  <table class="table table-bordered table-striped table-hover shadow-sm">
+    <thead class="table-header-light-gradient">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Client</th>
+        <th scope="col">Date de Réservation</th>
+        <th scope="col">Date de Début</th>
+        <th scope="col">Date de Fin</th>
+        <th scope="col">Nombre d'Adultes</th>
+        <th scope="col">Nombre d'Enfants</th>
+        <th scope="col">Chambre</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of filteredReservations()">
+        <td>{{ reservation.id || 'ID non défini' }}</td>
+        <td>{{ reservation.clientId || 'ID Client non défini' }}</td>
+        <td>{{ reservation.dateRes | date:'shortDate' }}</td>
+        <td>{{ reservation.dateDebut | date:'shortDate' }}</td>
+        <td>{{ reservation.dateFin | date:'shortDate' }}</td>
+        <td>{{ reservation.nbAdulte }}</td>
+        <td>{{ reservation.nbKids }}</td>
+        <td>{{ reservation.chambreId }}</td>
+        
+        <td>
+          <div class="btn-group" role="group" aria-label="Actions">
+            <button class="btn btn-warning btn-sm me-2" (click)="editReservation(reservation.id)">
+              <i class="fas fa-edit"></i> Éditer
+            </button>
+            <button class="btn btn-danger btn-sm me-2" (click)="deleteReservation(reservation.id)">
+              <i class="fas fa-trash"></i> Supprimer
+            </button>
+            <button class="btn btn-info btn-sm" [routerLink]="['/reservation-detail', reservation.id]">
+              <i class="fas fa-eye"></i> Voir Détail
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <div class="text-end mt-4">
+    <button class="btn btn-success shadow" routerLink="/add-reservation" title="Ajouter une Réservation">
+      <i class="fas fa-plus"></i> Ajouter une Réservation
+    </button>
+  </div>
+</div>

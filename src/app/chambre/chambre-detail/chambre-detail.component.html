@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div *ngIf="chambre" class="card shadow-lg" style="width: 100%; max-width: 600px; margin: 0 auto;">
+    
+    <img src="room.png" class="card-img-top rounded-top" alt="Image de la chambre" style="object-fit: cover; height: 250px;">
+
+ 
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ chambre.typeChambre }}</h5>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span><strong>ID de la Chambre:</strong> {{ chambre.id }}</span>
+        <span class="badge bg-primary text-white">Prix : {{ chambre.prixSejour | currency }}</span>
+      </div>
+
+      <p class="card-text">
+        <strong>État:</strong>
+        <ng-container *ngIf="chambre.etat === 'disponible'">
+          <i class="fas fa-check-circle text-success" title="Disponible"></i> <span>Disponible</span>
+        </ng-container>
+        <ng-container *ngIf="chambre.etat === 'non disponible'">
+          <i class="fas fa-times-circle text-danger" title="Non disponible"></i> <span>Non disponible</span>
+        </ng-container>
+      </p>
+
+    
+      <div class="d-flex justify-content-center mt-3">
+        <a [routerLink]="'/chambres'" class="btn btn-outline-primary btn-lg">
+          <i class="fas fa-arrow-left"></i> Retour à la liste des chambres
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
